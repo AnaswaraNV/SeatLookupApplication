@@ -7,12 +7,11 @@ Scenarios
 - invalid user name - error message 
 
 
-# How to Run
+# Setup
+npm install to get dependencies
+Start app with npm run start and point browser to http://localhost:4200/
 
-in terminal enter 
-
-1. npm install
-2. npm start 
+OR
 
 Navigate to website url: https://seat-lookup-app.herokuapp.com/
 
