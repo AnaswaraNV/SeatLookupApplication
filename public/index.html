@@ -5,28 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="./javascripts/lookUpSeat.js"></script>
+  <script src="./javascripts/global-variables.js"></script>
   <!--<script type = "module" src="./javascripts/model/SeatDetail.js"></script>-->
 </head>
 
 <body class="gradient-background main-container">
   <div class="seat-lookup-container">
-    <div class="child">
-      <img src="images/caseware-international-inc-logo.png"/>
+    <div class="flex-container">
+      <img class="logo-image" src="images/caseware-international-inc-logo.png"/>
     </div>
     <h1>Seat Look Up </h1>
-    <div class="child">
+    <div class="flex-container">
       <label for="fullName">FullName</label>
       <input type="text"  id="fullName"
              placeholder="description">
     </div>
 
-    <div class="child">
-      <button onClick="display()">
+    <div class="flex-container">
+      <button onClick="onSubmit()">
         Go
       </button>
     </div>
 
-    <div class="child">
+    <div class="flex-container"
+         id="result-container">
     </div>
   </div>
 </body>

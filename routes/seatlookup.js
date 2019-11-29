@@ -2,21 +2,21 @@
 
 const express = require('express');
 const router = express.Router();
-let employeeInfo = require("./MOCK_DATA.json");
+let employeeInfo = require("../resources/MOCK_DATA.json");
 let employeeMap = createEmployeeMap();
 
 /* GET Seat Lookup page. */
-router.get('/', function(req, res, next) {
-    const fullName = req.query.fullName;
-    res.send('seatLookUp');
-});
+// router.get('/', function(req, res, next) {
+//     const fullName = req.query.fullName;
+//     res.send('seatLookUp');
+// });
 
 router.get('/:fullName', function(req, res, next) {
     console.log('Username param was detected: ', req.params.fullName);
 
-    let employee = findEmployee(req.params.fullName);
-    console.log('seat--> ' , employee['seat']);
-    res.send('seatLookUp');
+    let employeeSeatResult = findEmployee(req.params.fullName);
+    console.log('seat--> ' , employeeSeatResult['seat']);
+    res.json(employeeSeatResult);
 });
 
 function findEmployee(fullName) {

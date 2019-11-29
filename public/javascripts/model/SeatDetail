@@ -1,4 +1,0 @@
-class SeatDetail {
-    seat;
-    floor;
-}

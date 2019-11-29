@@ -28,8 +28,8 @@ a {
   border: 1px solid goldenrod;
   background-color: white;
 
-  height: 50vh;
-  width: 40vh;
+  height: 50%;
+  width: 40%;
 
   align-items: center;
   justify-content: center;
@@ -44,14 +44,23 @@ a {
   flex-direction: column;
 }
 
-.child{
+.flex-container{
   flex: 1;
+  display: flex;
 
   background: #fffca2;
   padding: 2px 2px 2px 2px;
   /*margin: 2px;*/
   word-break: break-word;
   /*hyphens: auto;*/
+
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  width: 40%;
+  height: 50%;
 }
 
 @media only screen and (max-width: 640px) {
