@@ -12,7 +12,10 @@ let performSeatLookUp = () => {
     }
 
     if(pattern.test(fullName) === true) {
-        let url = BASE_URL  + 'seatlookup/' + fullName;
+        //const envUrl = (process.env.NODE_ENV ? PRODUCTION_URL : BASE_URL);
+        const envUrl = window.location.origin;
+
+        let url = envUrl  + '/seatlookup/' + fullName;
 
         //make the request
         return makeRequest(url, 'GET');
