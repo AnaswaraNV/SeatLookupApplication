@@ -1,0 +1,9 @@
+export class SeatDetail {
+    seat;
+    floor;
+
+    constructor(seat, floor) {
+        this.seat = seat;
+        this.floor = floor;
+    }
+}

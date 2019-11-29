@@ -1,0 +1,4 @@
+class SeatDetail {
+    seat;
+    floor;
+}
