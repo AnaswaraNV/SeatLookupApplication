@@ -7,6 +7,15 @@ Scenarios
 - invalid user name - error message 
 
 
+# How to Run
+
+in terminal enter 
+
+1. npm install
+2. npm start 
+
+Navigate to website url: https://seat-lookup-app.herokuapp.com/
+
 
 Things to do: 
 - input reg ex validation (- ' . valid) 
