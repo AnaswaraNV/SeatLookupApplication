@@ -8,4 +8,12 @@ test --> darn st. clair, marilee o'feeney, marie-ann gillman
 - other network related error handling - a generic message
 - check responsiveness
 - back end pattern matching and trim
-- blue color in mobile screen
+- blue color in mobile screen after radius 
+- test in other browsers
+- IIFE ,
+- disable button 
+- do not make api call if pattern error 
+
+#done 
+- back ground color change - gradient 
+ use strict

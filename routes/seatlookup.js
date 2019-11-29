@@ -1,4 +1,5 @@
 // import {SeatDetail} from "../model/SeatDetail";
+let pattern = /^[A-Za-z-'\.]+ [A-Za-z-'\.]+$/i;
 
 const express = require('express');
 const router = express.Router();
@@ -14,14 +15,19 @@ let employeeMap = createEmployeeMap();
 router.get('/:fullName', function(req, res, next) {
 
     let fullName = req.params.fullName;
-    let employeeSeatResult = findEmployee(fullName);
-    if(employeeSeatResult === null) {
-        // res.send(`Sorry, Cannot find ${fullName} in the System` );
-        res.status(500).send(`Sorry, cannot find ${fullName} in the system`);
+
+    if(pattern.test(fullName) === true) {
+        let employeeSeatResult = findEmployee(fullName);
+        if(employeeSeatResult === null) {
+            // res.send(`Sorry, Cannot find ${fullName} in the System` );
+            res.status(500).send(`Sorry, cannot find ${fullName} in the system`);
+        } else {
+            employeeSeatResult.name = fullName.split(" ", 1).toString();
+            console.log('name--> ' , employeeSeatResult['name']);
+            res.json(employeeSeatResult);
+        }
     } else {
-        employeeSeatResult.name = fullName.split(" ", 1).toString();
-        console.log('name--> ' , employeeSeatResult['name']);
-        res.json(employeeSeatResult);
+        res.send(500).send('Please enter valid name');
     }
 });
 

@@ -1,7 +1,25 @@
+"use strict";
+
+let pattern = /^[A-Za-z-'\.]+ [A-Za-z-'\.]+$/i;
+// document.getElementById("Button").disabled = true;
+
 let performSeatLookUp = () => {
-    let fullName = document.getElementById('fullName').value;
-    let url = BASE_URL  + 'seatlookup/' + fullName;
-    return makeRequest(url, 'GET');
+
+    let fullName;
+    if(document.getElementById('fullName').value) {
+        fullName = document.getElementById('fullName').value.trim();
+        // document.getElementById("Button").disabled = false;
+    }
+
+    if(pattern.test(fullName) === true) {
+        let url = BASE_URL  + 'seatlookup/' + fullName;
+
+        //make the request
+        return makeRequest(url, 'GET');
+    } else {
+        document.getElementById('errMessage').innerHTML = `Please enter valid name`;
+    }
+
 }
 
 let makeRequest = (url, method) => {
