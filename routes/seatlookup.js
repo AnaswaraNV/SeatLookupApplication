@@ -12,10 +12,10 @@ let employeeMap = createEmployeeMap();
 // });
 
 router.get('/:fullName', function(req, res, next) {
-    console.log('Username param was detected: ', req.params.fullName);
 
     let employeeSeatResult = findEmployee(req.params.fullName);
-    console.log('seat--> ' , employeeSeatResult['seat']);
+    employeeSeatResult.name = req.params.fullName.split(" ", 1).toString();
+    console.log('name--> ' , employeeSeatResult['name']);
     res.json(employeeSeatResult);
 });
 

@@ -1,13 +1,17 @@
 let performSeatLookUp = () => {
-    let xhr = new XMLHttpRequest();
     let fullName = document.getElementById('fullName').value;
+    let url = BASE_URL  + 'seatlookup/' + fullName;
+    return makeRequest(url, 'GET');
+}
 
-    let seatLookupPromise = new Promise((resolve, reject) => {
-        xhr.open('GET', BASE_URL  + 'seatlookup/' + fullName);
+let makeRequest = (url, method) => {
+    let xhr = new XMLHttpRequest();
+
+    let promise = new Promise((resolve, reject) => {
+        xhr.open(method, url);
         xhr.onload = function() {
             if(xhr.status === 200){
                 console.log('xhr response --- ' , xhr.response);
-                resolve(JSON.parse(xhr.response));
             } else {
                 reject(xhr.err);
             }
@@ -15,14 +19,15 @@ let performSeatLookUp = () => {
     });
 
     xhr.send();
-    return seatLookupPromise;
-}
+    return promise;
+};
 
 
 let onSubmit = () => {
     performSeatLookUp()
         .then((lookUpResult) => {
-            document.getElementById('result-container').innerHTML = `This employee is in Seat ${lookUpResult.seat}
+            console.log('here');
+            document.getElementById('result-container').innerHTML = `${lookUpResult.name} is seated on Seat ${lookUpResult.seat}
                 and Floor ${lookUpResult.floor}`;
         })
         .catch(() => {
