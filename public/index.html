@@ -1,35 +1,57 @@
 <html>
 
 <head>
-  <title>SeatLookupApp</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <script src="./javascripts/lookUpSeat.js"></script>
-  <script src="./javascripts/global-variables.js"></script>
-  <!--<script type = "module" src="./javascripts/model/SeatDetail.js"></script>-->
+    <title>SeatLookupApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="./javascripts/lookUpSeat.js"></script>
+    <script src="./javascripts/global-variables.js"></script>
+    <!--<script type = "module" src="./javascripts/model/SeatDetail.js"></script>-->
 </head>
 
 <body class="gradient-background main-container">
-  <div class="seat-lookup-container">
+<div class="seat-lookup-container">
+
+    <!--Logo-->
     <div class="flex-container justify-start">
-      <img class="logo-image" src="images/caseware-international-inc-logo.png"/>
+        <img class="logo-image" src="images/caseware-international-inc-logo.png"/>
     </div>
+
     <h1 class="h1">Seat Lookup </h1>
+
+    <!--Input-->
     <div class="flex-container">
-      <input type="text"  id="fullName"
-             placeholder="Enter full name">
+        <input type="text"  id="fullName"
+               placeholder="Enter full name">
     </div>
 
+    <!--Submit Button-->
     <div class="flex-container">
-      <button class="button" onClick="onSubmit()">
-        Go
-      </button>
+        <button class="button" onClick="onSubmit()">
+            Go
+        </button>
     </div>
 
-    <div class="flex-container"
-         id="result-container">
+    <!--Message Containers-->
+    <div class="flex-container">
+        <div class="success-container">
+            <div class="success-message-container"
+                 id="message1">
+            </div>
+            <div class="success-message-container"
+                 id="message2">
+            </div>
+            <div class="success-message-container"
+                 id="message3">
+            </div>
+        </div>
+        <!--<div class="error-container">-->
+            <!--<div class="error-message-container"-->
+                 <!--id="errMessage">-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
-  </div>
+</div>
 </body>
 
 </html>

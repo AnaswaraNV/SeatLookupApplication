@@ -13,10 +13,16 @@ let employeeMap = createEmployeeMap();
 
 router.get('/:fullName', function(req, res, next) {
 
-    let employeeSeatResult = findEmployee(req.params.fullName);
-    employeeSeatResult.name = req.params.fullName.split(" ", 1).toString();
-    console.log('name--> ' , employeeSeatResult['name']);
-    res.json(employeeSeatResult);
+    let fullName = req.params.fullName;
+    let employeeSeatResult = findEmployee(fullName);
+    if(employeeSeatResult === null) {
+        // res.send(`Sorry, Cannot find ${fullName} in the System` );
+        res.status(500).send(`Sorry, cannot find ${fullName} in the system`);
+    } else {
+        employeeSeatResult.name = fullName.split(" ", 1).toString();
+        console.log('name--> ' , employeeSeatResult['name']);
+        res.json(employeeSeatResult);
+    }
 });
 
 function findEmployee(fullName) {

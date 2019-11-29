@@ -12,6 +12,9 @@ let makeRequest = (url, method) => {
         xhr.onload = function() {
             if(xhr.status === 200){
                 console.log('xhr response --- ' , xhr.response);
+                resolve(JSON.parse(xhr.response));
+            } else if(xhr.status === 500){
+                reject(xhr.response);
             } else {
                 reject(xhr.err);
             }
@@ -26,12 +29,14 @@ let makeRequest = (url, method) => {
 let onSubmit = () => {
     performSeatLookUp()
         .then((lookUpResult) => {
-            console.log('here');
-            document.getElementById('result-container').innerHTML = `${lookUpResult.name} is seated on Seat ${lookUpResult.seat}
-                and Floor ${lookUpResult.floor}`;
+            // document.getElementById('message1').innerHTML = `${lookUpResult.name} is seated on Seat ${lookUpResult.seat} Floor ${lookUpResult.floor}`;
+            document.getElementById('message1').innerHTML = `${lookUpResult.name} is seated on`;
+            document.getElementById('message2').innerHTML = `Seat ${lookUpResult.seat}`;
+            document.getElementById('message3').innerHTML = `Floor ${lookUpResult.floor}`;
+
         })
-        .catch(() => {
-            document.getElementById('result-container').innerHTML = `This employee doesn't exist`;
+        .catch((err) => {
+            document.getElementById('errMessage').innerHTML = `${err}`;
         });
 }
 
