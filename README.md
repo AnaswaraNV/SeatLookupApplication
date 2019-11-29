@@ -1,5 +1,12 @@
 # SeatLookupApplication
- An application for getting seat details of an employee based on the name provided.
+ An application for getting seat details of an employee based on the full name provided.
+
+Scenarios 
+- user enters corrent full name - success message returns 
+- user enters wrong name - not found message returns
+- invalid user name - error message 
+
+
 
 Things to do: 
 - input reg ex validation (- ' . valid) 
