@@ -1,33 +1,30 @@
 # SeatLookupApplication
  An application for getting seat details of an employee based on the full name provided.
+ 
+ # Prerequisites
+ 
+ npm 
+ node
+ 
+# Setup for local development
+- cd folder/to/clone-into/
+- git clone https://github.com/AnaswaraNV/SeatLookupApplication.git
+- navigate to the cloned folder in terminal/ command prompt
+- run `npm install`
+- run `npm run start`
+- navigate to http://localhost:3000 in the browser.
 
-Scenarios 
-- user enters corrent full name - success message returns 
-- user enters wrong name - not found message returns
-- invalid user name - error message 
-
-
-# Setup
-npm install to get dependencies
-Start app with npm run start and point browser to http://localhost:4200/
-
-OR
+# Production Url
 
 Navigate to website url: https://seat-lookup-app.herokuapp.com/
 
+# Identified Bugs
 
-- IIFE 
-- git ignore for node modules 
+- In mobile, when the keyboard is shown, the UI is jumbled.
+- In Safari, flex box doesn't work as desired. UI is messed up. 
 
+# Future Upgrades
 
-#done 
-- back ground color change - gradient 
- use strict
-- input reg ex validation (- ' . valid) 
-test --> darn st. clair, marilee o'feeney, marie-ann gillman 
-- do not make api call if pattern error
-- disable button 
-- test in other browsers
-- back end pattern matching and trim
-- check responsiveness
-- other network related error handling - a generic message
+- CRUD functionalities of seat allocation (eg. add new seat, edit seat of an employee etc.)
+- When a user starts entering full name, system auto suggests existing users from database. 
+- Set database instead of mock json file. 
