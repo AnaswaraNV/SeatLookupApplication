@@ -1,34 +1,37 @@
 "use strict";
 
-let pattern = /^[A-Za-z-'\.]+ [A-Za-z-'\.]+$/i;
-// document.getElementById("Button").disabled = true;
+const pattern = /^[A-Za-z-'\.]+ [A-Za-z-'\.]+$/i;
 
 let performSeatLookUp = () => {
 
     let fullName;
     if(document.getElementById('fullName').value) {
-        fullName = document.getElementById('fullName').value.trim();
-        // document.getElementById("Button").disabled = false;
+        fullName = document.getElementById('fullName').value.toLowerCase().trim();
+    } else {
+        return new Promise((resolve, reject) => {
+            reject(`Please enter valid name`) ;
+        });
     }
 
     if(pattern.test(fullName) === true) {
-        //const envUrl = (process.env.NODE_ENV ? PRODUCTION_URL : BASE_URL);
         const envUrl = window.location.origin;
 
-        let url = envUrl  + '/seatlookup/' + fullName;
+        const url = envUrl  + '/seatlookup/' + fullName;
 
         //make the request
         return makeRequest(url, 'GET');
     } else {
-        document.getElementById('errMessage').innerHTML = `Please enter valid name`;
+        return new Promise((resolve, reject) => {
+            reject(`Please enter valid name`) ;
+        });
     }
 
 }
 
 let makeRequest = (url, method) => {
-    let xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
 
-    let promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
         xhr.open(method, url);
         xhr.onload = function() {
             if(xhr.status === 200){
@@ -50,15 +53,31 @@ let makeRequest = (url, method) => {
 let onSubmit = () => {
     performSeatLookUp()
         .then((lookUpResult) => {
-            // document.getElementById('message1').innerHTML = `${lookUpResult.name} is seated on Seat ${lookUpResult.seat} Floor ${lookUpResult.floor}`;
-            document.getElementById('message1').innerHTML = `${lookUpResult.name} is seated on`;
-            document.getElementById('message2').innerHTML = `Seat ${lookUpResult.seat}`;
-            document.getElementById('message3').innerHTML = `Floor ${lookUpResult.floor}`;
-
+            populateSeatMessage(lookUpResult);
+            hideErrorMessage();
         })
         .catch((err) => {
-            document.getElementById('errMessage').innerHTML = `${err}`;
+            populateErrorMessage(err);
+            hideSeatMessage();
         });
-}
+};
 
+let populateSeatMessage = (lookUpResult) => {
+    document.getElementById('successMessageContainer').className="flex-container";
+    document.getElementById('message1').innerHTML = `${lookUpResult.name} is seated on`;
+    document.getElementById('message2').innerHTML = `Floor ${lookUpResult.floor}`;
+    document.getElementById('message3').innerHTML = `Seat ${lookUpResult.seat}`;
+};
 
+let hideErrorMessage = () => {
+    document.getElementById('errorMessageContainer').className="hide";
+};
+
+let populateErrorMessage = (err) => {
+    document.getElementById('errorMessageContainer').className="flex-container";
+    document.getElementById('errMessage').innerHTML = `${err}`;
+};
+
+let hideSeatMessage = () => {
+    document.getElementById('successMessageContainer').className="hide";
+};

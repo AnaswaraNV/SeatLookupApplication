@@ -10,49 +10,54 @@
 </head>
 
 <body class="gradient-background main-container">
-<div class="seat-lookup-container">
+    <div class="seat-lookup-container">
 
-    <!--Logo-->
-    <div class="flex-container justify-start">
-        <img class="logo-image" src="images/caseware-international-inc-logo.png"/>
-    </div>
+        <!--Logo-->
+        <div class="flex-container justify-start">
+            <img class="logo-image" src="images/caseware-international-inc-logo.png"/>
+        </div>
 
-    <h1 class="h1">Seat Lookup </h1>
+        <h1 class="h1">Seat Lookup </h1>
 
-    <!--Input-->
-    <div class="flex-container">
-        <input type="text"  id="fullName"
-               placeholder="Enter full name">
-    </div>
+        <!--Input-->
+        <div class="flex-container">
+            <input type="text"  id="fullName"
+                   placeholder="Enter full name">
+        </div>
 
-    <!--Submit Button-->
-    <div class="flex-container">
-        <button class="button" type="Button" id="Button"
-                onClick="onSubmit()">
-            Go
-        </button>
-    </div>
+        <!--Submit Button-->
+        <div class="flex-container">
+            <button class="button" type="Button" id="Button"
+                    onClick="onSubmit()">
+                Go
+            </button>
+        </div>
 
-    <!--Message Containers-->
-    <div class="flex-container">
-        <div class="success-container">
-            <div class="success-message-container"
-                 id="message1">
-            </div>
-            <div class="success-message-container"
-                 id="message2">
-            </div>
-            <div class="success-message-container"
-                 id="message3">
+        <!--Message Containers-->
+        <div class="flex-container"
+             id="successMessageContainer">
+            <div class="success-container">
+                <div class="success-message-container"
+                     id="message1">
+                </div>
+                <div class="success-message-container"
+                     id="message2">
+                </div>
+                <div class="success-message-container"
+                     id="message3">
+                </div>
             </div>
         </div>
-        <!--<div class="error-container">-->
-            <!--<div class="error-message-container"-->
-                 <!--id="errMessage">-->
-            <!--</div>-->
-        <!--</div>-->
+
+        <div class="flex-container"
+            id="errorMessageContainer">
+            <div class="error-container"
+                 id="errMessage">
+                <!--<div class="error-message-container">-->
+                <!--</div>-->
+            </div>
+        </div>
     </div>
-</div>
 </body>
 
 </html>
