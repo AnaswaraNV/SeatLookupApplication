@@ -1,5 +1,20 @@
 # SeatLookupApplication
- An application for getting seat details of an employee based on the name provided.
+ An application for getting seat details of an employee based on the full name provided.
+
+Scenarios 
+- user enters corrent full name - success message returns 
+- user enters wrong name - not found message returns
+- invalid user name - error message 
+
+
+# Setup
+npm install to get dependencies
+Start app with npm run start and point browser to http://localhost:4200/
+
+OR
+
+Navigate to website url: https://seat-lookup-app.herokuapp.com/
+
 
 - IIFE 
 - git ignore for node modules 
